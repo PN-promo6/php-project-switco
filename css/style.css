@@ -1,0 +1,51 @@
+/* GENREAL */
+body, a {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+}
+
+a:hover {
+     color: thistle ;
+}
+
+.footer-link-hover a:hover {
+    color: white;
+}
+
+/* FONTS */
+.title-font {
+    font-family: 'Bebas Neue', cursive;
+}
+
+p, .social-network-logo {
+    font-size: 1.3rem;
+}
+
+h1 {
+    font-size: 3.5rem;
+}
+
+.text-lilac {
+    color: #d8bfd8;
+}
+
+/* BUTTONS */
+.btn-custom:hover {
+    color: #fff;
+    background-color: #d8bfd8;
+    border-color: #d8bfd8;
+}
+
+/*  BACKGROUND COLOR */
+.bg-light-lilac {
+    background-color: #f4e8fc !important;
+
+}
+
+.bg-lilac {
+    background-color: thistle ;
+}
+
+.card {
+    border: none;
+}
