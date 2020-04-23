@@ -1,3 +1,38 @@
+<?php
+
+use Entity\User;
+use Entity\Post;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+$userToup = new User();
+$userToup->id = 1;
+$userToup->nickname = "Toupi";
+$userToup->password = "touplegroschat";
+
+$newPost = new Post();
+$newPost->id = 1;
+$newPost->title = "Créations Pastel Goth";
+$newPost->category = "Bijoux";
+$newPost->url_image = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/60343475_2194603813919786_4834139786484645888_o.jpg?_nc_cat=111&_nc_sid=8024bb&_nc_ohc=HIdb_qIKitkAX-Gg5BP&_nc_ht=scontent-cdg2-1.xx&oh=3a33aaf34ce10168552314e24bdb64cd&oe=5EC58970";
+$newPost->user = $userToup;
+
+$userNep = new User();
+$userNep->id = 2;
+$userNep->nickname = "Nep";
+$userNep->password = "peplepetitchat";
+
+$newPost2 = new Post();
+$newPost2->id = 2;
+$newPost2->title = "Noeuds Pastel Goth";
+$newPost2->category = "Noeuds";
+$newPost2->url_image = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/58420436_2173625492684285_4126845508482236416_n.jpg?_nc_cat=110&_nc_sid=8024bb&_nc_ohc=k-2OYqbBylUAX9t-nGf&_nc_ht=scontent-cdg2-1.xx&oh=28e6333f64af8e6242abaf88b110c8e9&oe=5EC7321C";
+$newPost2->user = $userNep;
+
+$items = array($newPost, $newPost2);
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -68,7 +103,7 @@
     <div class="bg-light-lilac py-5">
         <main class="container">
             <div class="row">
-                <div class="col-lg-4 text-left pl-0">
+                <div class="col-lg-4 text-left pl-0 mb-3">
                     <div class="card">
                         <div class="card-body">
                             <h2 class="h4 font-weight-bold">
@@ -79,53 +114,26 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8 pr-0">
-                    <div class="">
-                        <div class="card mb-3">
-                            <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/61454988_2222946187752215_4021438923614978048_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=-C9GyrDLeNMAX9QEO_j&_nc_ht=scontent-cdg2-1.xx&oh=79f50e36d00a12c57a258d8d9d8d4ddf&oe=5EC774BD" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h3 class="card-title h5">Card title</h3>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                    additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">@pseudo</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="card mb-3">
-                            <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/61454988_2222946187752215_4021438923614978048_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=-C9GyrDLeNMAX9QEO_j&_nc_ht=scontent-cdg2-1.xx&oh=79f50e36d00a12c57a258d8d9d8d4ddf&oe=5EC774BD" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h3 class="card-title h5">Card title</h3>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                    additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">@pseudo</small></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="card mb-3">
-                            <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/61454988_2222946187752215_4021438923614978048_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=-C9GyrDLeNMAX9QEO_j&_nc_ht=scontent-cdg2-1.xx&oh=79f50e36d00a12c57a258d8d9d8d4ddf&oe=5EC774BD" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h3 class="card-title h5">Card title</h3>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                    additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">@pseudo</small></p>
 
+                <div class="col-lg-8 pr-0">
+                    <?php
+
+                    foreach ($items as $item) {
+                    ?>
+                        <div class="">
+                            <div class="card mb-3">
+                                <img src="<?php echo $item->url_image; ?>" class="card-img-top" alt="">
+                                <div class="card-body">
+                                    <h3 class="card-title h5"><?php echo $item->title; ?></h3>
+                                    <p class="card-text"><?php echo $item->category; ?></p>
+                                    <p class="card-text"><small class="text-muted">@<?php echo $item->user->nickname; ?></small></p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="">
-                        <div class="card">
-                            <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/61454988_2222946187752215_4021438923614978048_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=-C9GyrDLeNMAX9QEO_j&_nc_ht=scontent-cdg2-1.xx&oh=79f50e36d00a12c57a258d8d9d8d4ddf&oe=5EC774BD" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h3 class="card-title h5">Card title</h3>
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                    additional content. This content is a little bit longer.</p>
-                                <p class="card-text"><small class="text-muted">@pseudo</small></p>
-                            </div>
-                        </div>
-                    </div>
+                    <?php
+                    } ?>
                 </div>
+
             </div>
         </main>
     </div>
