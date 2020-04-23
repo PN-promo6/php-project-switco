@@ -65,68 +65,70 @@
     </div>
 
     <!-- MAIN -->
-    <main class="container bg-light-lilac mb-5">
-        <div class="row">
-            <div class="col-lg-4 mt-5 text-left">
-                <div class="card ml-5">
-                    <div class="card-body">
-                        <h2 class="h4 font-weight-bold">
-                            What's new
-                        </h2>
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <div class="px-5 pt-5 pb-3">
-                    <div class="card mb-3">
-                        <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/61454988_2222946187752215_4021438923614978048_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=-C9GyrDLeNMAX9QEO_j&_nc_ht=scontent-cdg2-1.xx&oh=79f50e36d00a12c57a258d8d9d8d4ddf&oe=5EC774BD" class="card-img-top" alt="...">
+    <div class="bg-light-lilac py-5">
+        <main class="container">
+            <div class="row">
+                <div class="col-lg-4 text-left pl-0">
+                    <div class="card">
                         <div class="card-body">
-                            <h3 class="card-title h5">Card title</h3>
+                            <h2 class="h4 font-weight-bold">
+                                What's new
+                            </h2>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
                                 additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">@pseudo</small></p>
                         </div>
                     </div>
                 </div>
-                <div class="px-5 py-3">
-                    <div class="card mb-3">
-                        <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/61454988_2222946187752215_4021438923614978048_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=-C9GyrDLeNMAX9QEO_j&_nc_ht=scontent-cdg2-1.xx&oh=79f50e36d00a12c57a258d8d9d8d4ddf&oe=5EC774BD" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-title h5">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">@pseudo</small></p>
+                <div class="col-lg-8 pr-0">
+                    <div class="">
+                        <div class="card mb-3">
+                            <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/61454988_2222946187752215_4021438923614978048_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=-C9GyrDLeNMAX9QEO_j&_nc_ht=scontent-cdg2-1.xx&oh=79f50e36d00a12c57a258d8d9d8d4ddf&oe=5EC774BD" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Card title</h3>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">@pseudo</small></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="px-5 py-3">
-                    <div class="card mb-3">
-                        <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/61454988_2222946187752215_4021438923614978048_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=-C9GyrDLeNMAX9QEO_j&_nc_ht=scontent-cdg2-1.xx&oh=79f50e36d00a12c57a258d8d9d8d4ddf&oe=5EC774BD" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-title h5">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">@pseudo</small></p>
+                    <div class="">
+                        <div class="card mb-3">
+                            <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/61454988_2222946187752215_4021438923614978048_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=-C9GyrDLeNMAX9QEO_j&_nc_ht=scontent-cdg2-1.xx&oh=79f50e36d00a12c57a258d8d9d8d4ddf&oe=5EC774BD" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Card title</h3>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">@pseudo</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <div class="card mb-3">
+                            <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/61454988_2222946187752215_4021438923614978048_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=-C9GyrDLeNMAX9QEO_j&_nc_ht=scontent-cdg2-1.xx&oh=79f50e36d00a12c57a258d8d9d8d4ddf&oe=5EC774BD" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Card title</h3>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">@pseudo</small></p>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="px-5 py-3">
-                    <div class="card mb-3">
-                        <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/61454988_2222946187752215_4021438923614978048_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=-C9GyrDLeNMAX9QEO_j&_nc_ht=scontent-cdg2-1.xx&oh=79f50e36d00a12c57a258d8d9d8d4ddf&oe=5EC774BD" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h3 class="card-title h5">Card title</h3>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">@pseudo</small></p>
+                    <div class="">
+                        <div class="card">
+                            <img src="https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/61454988_2222946187752215_4021438923614978048_o.jpg?_nc_cat=100&_nc_sid=8024bb&_nc_ohc=-C9GyrDLeNMAX9QEO_j&_nc_ht=scontent-cdg2-1.xx&oh=79f50e36d00a12c57a258d8d9d8d4ddf&oe=5EC774BD" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h3 class="card-title h5">Card title</h3>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                                    additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">@pseudo</small></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </main>
+        </main>
+    </div>
 
     <!-- FOOTER -->
 

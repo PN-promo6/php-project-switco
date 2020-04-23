@@ -34,12 +34,8 @@ h1 {
 
 /*  BACKGROUND COLOR */
 .bg-light-lilac {
-    background-color: #f4e8fc !important;
+    background-color: rgba(244,232,252,0.3) !important;
 
-}
-
-.bg-lilac {
-    background-color: thistle ;
 }
 
 .card {
