@@ -2,6 +2,8 @@
 
 namespace Entity;
 
+use ludk\Utils\Serializer;
+
 class User
 {
     public $id;
@@ -9,11 +11,5 @@ class User
     public $mail;
     public $password;
 
-    // public function __construct($id, $nickname, $mail, $password)
-    // {
-    //     $this->id = $id;
-    //     $this->nickname = $nickname;
-    //     $this->mail = $mail;
-    //     $this->password = $password;
-    // }
+    use Serializer;
 }

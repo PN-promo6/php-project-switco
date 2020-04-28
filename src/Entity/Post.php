@@ -3,6 +3,7 @@
 namespace Entity;
 
 use Entity\User;
+use ludk\Utils\Serializer;
 
 class Post
 {
@@ -12,12 +13,5 @@ class Post
     public $url_image;
     public User $user;
 
-    // public function __construct($id, $title, $category, $url_image, User $user)
-    // {
-    //     $this->id = $id;
-    //     $this->title = $title;
-    //     $this->category = $category;
-    //     $this->url_image = $url_image;
-    //     $this->user = $user;
-    // }
+    use Serializer;
 }

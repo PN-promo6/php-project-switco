@@ -1,11 +1,11 @@
 /* GENREAL */
-body, a {
+body, a, #navbarNav .navbar-nav .nav-item .nav-link {
     font-family: 'Montserrat', sans-serif;
     color: black;
 }
 
 a:hover {
-     color: thistle ;
+     color: thistle;
 }
 
 /* FONTS */
@@ -18,26 +18,51 @@ p, .social-network-logo {
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 2rem;
 }
 
+/*COLOR*/
 .text-lilac {
     color: #d8bfd8;
 }
 
 /* BUTTONS */
-.btn-custom:hover {
+#navbarNav .navbar-nav .nav-item:hover .btn-custom:hover {
     color: #fff;
     background-color: #d8bfd8;
     border-color: #d8bfd8;
 }
 
 /*  BACKGROUND COLOR */
-.bg-light-lilac {
-    background-color: rgba(244,232,252,0.3) !important;
+#bootstrap-overrides-bg .bg-light-lilac {
+    background-color: rgba(244,232,252,0.3);
+}
 
+#bootstrap-overrides-bg .bg-gradient {
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,0.8) 0%, rgba(189,148,233,0.20) 100%); 
 }
 
 .card {
     border: none;
+}
+
+#navbarNav .navbar-nav .nav-item .nav-link:hover  {
+    color: thistle;
+}
+
+/* BADGES */
+.custom-badge-lilac {
+    color: #fff;
+    background-color: #d8bfd8;
+}
+
+.custom-badge-pink {
+    color: #fff;
+    background-color: pink;
+}
+
+.custom-badge-teal {
+    color: #fff;
+    background-color: teal;
 }

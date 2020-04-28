@@ -1,35 +1,48 @@
 <?php
 
-use Entity\User;
 use Entity\Post;
+use ludk\Persistence\ORM;
 
 require __DIR__ . '/../vendor/autoload.php';
+$orm = new ORM(__DIR__ . '/../resources');
+$postRepo = $orm->getRepository(Post::class);
 
-$userToup = new User();
-$userToup->id = 1;
-$userToup->nickname = "Toupi";
-$userToup->password = "touplegroschat";
+if (isset($_GET['search'])) {
+    $items = $postRepo->findBy(array("category" => $_GET['search']));
+} else {
+    $items = $postRepo->findAll();
+}
 
-$newPost = new Post();
-$newPost->id = 1;
-$newPost->title = "Créations Pastel Goth";
-$newPost->category = "Bijoux";
-$newPost->url_image = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/60343475_2194603813919786_4834139786484645888_o.jpg?_nc_cat=111&_nc_sid=8024bb&_nc_ohc=HIdb_qIKitkAX-Gg5BP&_nc_ht=scontent-cdg2-1.xx&oh=3a33aaf34ce10168552314e24bdb64cd&oe=5EC58970";
-$newPost->user = $userToup;
+// use Entity\User;
+// use Entity\Post;
 
-$userNep = new User();
-$userNep->id = 2;
-$userNep->nickname = "Nep";
-$userNep->password = "peplepetitchat";
+// require __DIR__ . '/../vendor/autoload.php';
 
-$newPost2 = new Post();
-$newPost2->id = 2;
-$newPost2->title = "Noeuds Pastel Goth";
-$newPost2->category = "Noeuds";
-$newPost2->url_image = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/58420436_2173625492684285_4126845508482236416_n.jpg?_nc_cat=110&_nc_sid=8024bb&_nc_ohc=k-2OYqbBylUAX9t-nGf&_nc_ht=scontent-cdg2-1.xx&oh=28e6333f64af8e6242abaf88b110c8e9&oe=5EC7321C";
-$newPost2->user = $userNep;
+// $userToup = new User();
+// $userToup->id = 1;
+// $userToup->nickname = "Toupi";
+// $userToup->password = "touplegroschat";
 
-$items = array($newPost, $newPost2);
+// $newPost = new Post();
+// $newPost->id = 1;
+// $newPost->title = "Créations Pastel Goth";
+// $newPost->category = "Bijoux";
+// $newPost->url_image = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/60343475_2194603813919786_4834139786484645888_o.jpg?_nc_cat=111&_nc_sid=8024bb&_nc_ohc=HIdb_qIKitkAX-Gg5BP&_nc_ht=scontent-cdg2-1.xx&oh=3a33aaf34ce10168552314e24bdb64cd&oe=5EC58970";
+// $newPost->user = $userToup;
+
+// $userNep = new User();
+// $userNep->id = 2;
+// $userNep->nickname = "Nep";
+// $userNep->password = "peplepetitchat";
+
+// $newPost2 = new Post();
+// $newPost2->id = 2;
+// $newPost2->title = "Noeuds Pastel Goth";
+// $newPost2->category = "Noeuds";
+// $newPost2->url_image = "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/58420436_2173625492684285_4126845508482236416_n.jpg?_nc_cat=110&_nc_sid=8024bb&_nc_ohc=k-2OYqbBylUAX9t-nGf&_nc_ht=scontent-cdg2-1.xx&oh=28e6333f64af8e6242abaf88b110c8e9&oe=5EC7321C";
+// $newPost2->user = $userNep;
+
+// $items = array($newPost, $newPost2);
 
 ?>
 
@@ -48,33 +61,26 @@ $items = array($newPost, $newPost2);
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
 
-    <title>Site name</title>
+    <title>Mon super site</title>
 </head>
 
-<body>
+<body id="bootstrap-overrides-bg">
 
     <!-- NAVBAR -->
     <div class="sticky-top bg-white shadow-sm">
         <div class="container p-0">
-            <nav class="navbar navbar-expand-lg py-4 pr-0">
+
+            <nav class="navbar navbar-expand-lg navbar-light px-sm-0">
+                <a class="navbar-brand font-weight-bold" href="#">CREEPY CUTE</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <div class="row">
-                        <div class="col-lg-6"></div>
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link font-weight-bold pl-0" href="#">CREEPY CUTE</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-6 mr-auto"></div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">LOG IN</a>
+                            <a class="nav-link" href="#">LOG IN<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link btn btn-outline-dark btn-custom" href="#">SIGN UP</a>
@@ -85,15 +91,17 @@ $items = array($newPost, $newPost2);
         </div>
     </div>
 
-    <div class="">
-        <!-- HEADER -->
-        <div class="container py-5">
+    <div class="bg-gradient py-5">
+        <div class="container py-4">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h1 class="title-font text-lilac">Enter our world of creepy cuteness</h1>
-                    <p class="">Discover creations from people all around the world, sharing the same love for creepy
-                        cute stuffs
-                    </p>
+                    <h1 class="m-0 title-font text-white">Discover creepy cute creations from people all around the world</h1>
+                    <!-- <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-dark" type="submit" id="button-addon2">Button</button>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -103,37 +111,22 @@ $items = array($newPost, $newPost2);
     <div class="bg-light-lilac py-5">
         <main class="container">
             <div class="row">
-                <div class="col-lg-4 text-left pl-0 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h2 class="h4 font-weight-bold">
-                                What's new
-                            </h2>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
+                <?php
+                foreach ($items as $item) {
+                ?>
+                    <div class="col-lg-4 px-1">
+                        <div class="card mb-4">
+                            <img src="<?php echo $item->url_image; ?>" class="card-img-top" alt="Image du post">
+                            <div class="card-body">
+                                <h3 class="card-title h5"><?php echo $item->title; ?></h3>
+                                <p class="card-text"><span class="badge badge-pill custom-badge-lilac"><?php echo $item->category; ?></span></p>
+                                <p class="card-text"><small class="text-muted">@<?php echo $item->user->nickname; ?></small></p>
+                            </div>
+
                         </div>
                     </div>
-                </div>
-
-                <div class="col-lg-8 pr-0">
-                    <?php
-
-                    foreach ($items as $item) {
-                    ?>
-                        <div class="">
-                            <div class="card mb-3">
-                                <img src="<?php echo $item->url_image; ?>" class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h3 class="card-title h5"><?php echo $item->title; ?></h3>
-                                    <p class="card-text"><?php echo $item->category; ?></p>
-                                    <p class="card-text"><small class="text-muted">@<?php echo $item->user->nickname; ?></small></p>
-                                </div>
-                            </div>
-                        </div>
-                    <?php
-                    } ?>
-                </div>
-
+                <?php
+                } ?>
             </div>
         </main>
     </div>

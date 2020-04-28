@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "nickname": "Toup",
+        "mail": "toup@gmail.com",
+        "password": "azerty"
+    },
+    {
+        "id": 2,
+        "nickname": "Gripi",
+        "mail": "gripi@gmail.com",
+        "password": "azerty"
+    },
+    {
+        "id": 3,
+        "nickname": "Calicat",
+        "mail": "calicat@gmail.com",
+        "password": "azerty"
+    },
+    {
+        "id": 4,
+        "nickname": "ToupiKun",
+        "mail": "toupikun@gmail.com",
+        "password": "azerty"
+    },
+    {
+        "id": 5,
+        "nickname": "Pep",
+        "mail": "pep@gmail.com",
+        "password": "azerty"
+    },
+    {
+        "id": 6,
+        "nickname": "Nep",
+        "mail": "nep@gmail.com",
+        "password": "azerty"
+    },
+    {
+        "id": 7,
+        "nickname": "Georges",
+        "mail": "georges@gmail.com",
+        "password": "azerty"
+    }
+]
