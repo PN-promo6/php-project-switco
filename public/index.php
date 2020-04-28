@@ -110,12 +110,16 @@ if (isset($_GET['search'])) {
     <!-- MAIN -->
     <div class="bg-light-lilac py-5">
         <main class="container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <?php
+                $rowLimite = 0;
                 foreach ($items as $item) {
+                    if ($rowLimite % 3 == 0 && $rowLimite > 0) {
+                        echo '</div><div class="row justify-content-center">';
+                    }
                 ?>
-                    <div class="col-lg-4 px-1">
-                        <div class="card mb-4">
+                    <div class="col-lg-4">
+                        <div class="card mb-3">
                             <img src="<?php echo $item->url_image; ?>" class="card-img-top" alt="Image du post">
                             <div class="card-body">
                                 <h3 class="card-title h5"><?php echo $item->title; ?></h3>
@@ -126,6 +130,7 @@ if (isset($_GET['search'])) {
                         </div>
                     </div>
                 <?php
+                    $rowLimite++;
                 } ?>
             </div>
         </main>
