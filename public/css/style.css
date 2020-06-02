@@ -27,7 +27,7 @@ h1 {
 }
 
 /* BUTTONS */
-#navbarNav .navbar-nav .nav-item:hover .btn-custom:hover {
+#navbarNav .navbar-nav .nav-item:hover .btn-custom:hover, .lilac-btn{
     color: #fff;
     background-color: #d8bfd8;
     border-color: #d8bfd8;
@@ -65,16 +65,4 @@ h1 {
 .custom-badge-teal {
     color: #fff;
     background-color: teal;
-}
-
-/*INPUT SEARCH*/
-
-.btn-radius {
-    border-bottom-right-radius: 10rem;
-    border-top-right-radius: 10rem; 
-}
-
-.input-radius {
-    border-bottom-left-radius: 10rem;
-    border-top-left-radius: 10rem; 
 }
