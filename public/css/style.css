@@ -66,3 +66,15 @@ h1 {
     color: #fff;
     background-color: teal;
 }
+
+/*INPUT SEARCH*/
+
+.btn-radius {
+    border-bottom-right-radius: 10rem;
+    border-top-right-radius: 10rem; 
+}
+
+.input-radius {
+    border-bottom-left-radius: 10rem;
+    border-top-left-radius: 10rem; 
+}

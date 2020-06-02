@@ -7,10 +7,10 @@ use ludk\Utils\Serializer;
 
 class Post
 {
-    public $id;
-    public $title;
-    public $category;
-    public $url_image;
+    public int $id;
+    public string $title;
+    public string $category;
+    public string $url_image;
     public User $user;
 
     use Serializer;

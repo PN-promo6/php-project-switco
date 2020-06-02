@@ -6,10 +6,10 @@ use ludk\Utils\Serializer;
 
 class User
 {
-    public $id;
-    public $nickname;
-    public $mail;
-    public $password;
+    public int $id;
+    public string $nickname;
+    public string $mail;
+    public string $password;
 
     use Serializer;
 }

@@ -1,14 +1,36 @@
 <?php
 
 use Entity\Post;
+use Entity\User;
 use ludk\Persistence\ORM;
 
 require __DIR__ . '/../vendor/autoload.php';
-$orm = new ORM(__DIR__ . '/../resources');
+
+session_start();
+
+$orm = new ORM(__DIR__ . '/../Resources');
 $postRepo = $orm->getRepository(Post::class);
 
+//$manager = $orm->getManager();
+//$item = $postRepo->find(1);
+//$item->title = "Nouveau titre";
+//$manager->persist($item);
+//$manager->flush();
+
+$items = array();
 if (isset($_GET['search'])) {
-    $items = $postRepo->findBy(array("category" => $_GET['search']));
+    $search = $_GET['search'];
+    if (strpos($search, "@") === 0) {
+        $userRepo = $orm->getRepository(User::class);
+        $nickname = substr($search, 1); // récupère le nickname en enlevant le premier caractère (ici le @)
+        $users = $userRepo->findBy(array("nickname" => $nickname));
+        if (count($users) == 1) {
+            $user = $users[0];
+            $items = $postRepo->findBy(array("user" => $user->id));
+        }
+    } else {
+        $items = $postRepo->findBy(array("category" => $search));
+    }
 } else {
     $items = $postRepo->findAll();
 }
@@ -73,12 +95,18 @@ if (isset($_GET['search'])) {
         <div class="container p-0">
 
             <nav class="navbar navbar-expand-lg navbar-light px-sm-0">
-                <a class="navbar-brand font-weight-bold" href="#">CREEPY CUTE</a>
+                <a class="navbar-brand font-weight-bold" href="?">CREEPY CUTE</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <form class="form-inline my-2 my-lg-0 d-flex justify-content-center">
+                                <input class="form-control" name="search" type="search" aria-label="Search">
+                                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">LOG IN<span class="sr-only">(current)</span></a>
                         </li>
@@ -96,12 +124,6 @@ if (isset($_GET['search'])) {
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h1 class="m-0 title-font text-white">Discover creepy cute creations from people all around the world</h1>
-                    <!-- <div class="input-group mb-3">
-                        <input type="text" class="form-control" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-dark" type="submit" id="button-addon2">Button</button>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -124,7 +146,7 @@ if (isset($_GET['search'])) {
                             <div class="card-body">
                                 <h3 class="card-title h5"><?php echo $item->title; ?></h3>
                                 <p class="card-text"><span class="badge badge-pill custom-badge-lilac"><?php echo $item->category; ?></span></p>
-                                <p class="card-text"><small class="text-muted">@<?php echo $item->user->nickname; ?></small></p>
+                                <a href="?search=@<?php echo $item->user->nickname; ?>" class="card-text"><small class="text-muted">@<?php echo $item->user->nickname; ?></small></a>
                             </div>
 
                         </div>
@@ -138,7 +160,7 @@ if (isset($_GET['search'])) {
 
     <!-- FOOTER -->
 
-    <div class="sticky-top">
+    <div class="">
         <div class="container p-0">
             <nav class="navbar navbar-expand-lg py-4">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
