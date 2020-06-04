@@ -37,15 +37,16 @@
         <div class="row">
             <div class="col-md-5 mx-auto mt-5">
                 <form class="form-group" method="POST" action="?action=login">
-                    <h2 class="mt-5 mb-4">🦇 Welcome Back !</h2>
+                    <h2 class="mt-5 mb-4">🦇 Create your own post !</h2>
                     <?php
                     if (isset($errorMsg)) {
                         echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";
                     }
                     ?>
-                    <input type="text" class="form-control mb-4" name="username" placeholder="Email Address" required="" autofocus="" />
-                    <input type="password" class="form-control mb-4" name="password" placeholder="Password" required="" />
-                    <button class="btn btn-dark btn-block" type="submit">Login</button>
+                    <input type="text" class="form-control mb-4" name="title" placeholder="Title" required="" autofocus="" />
+                    <input type="text" class="form-control mb-4" name="category" placeholder="Category" required="" />
+                    <input type="url" class="form-control mb-4" name="url_image" placeholder="Image's url" required="" />
+                    <button class="btn btn-dark btn-block" type="submit">Post</button>
                 </form>
             </div>
         </div>

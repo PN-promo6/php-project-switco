@@ -73,6 +73,17 @@
     <!-- MAIN -->
     <div class="bg-light-lilac py-5">
         <main class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 mb-5">
+                    <?php
+                    if (isset($_SESSION['user'])) {
+                    ?>
+                        <a href="/?action=new" class="btn btn-dark btn-block"> Add new post</a>
+                    <?php
+                    }
+                    ?>
+                </div>
+            </div>
             <div class="row justify-content-center">
                 <?php
                 $rowLimite = 0;
