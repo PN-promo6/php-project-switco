@@ -36,7 +36,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 mx-auto mt-5">
-                <form class="form-group" method="POST" action="?action=login">
+                <form class="form-group" method="POST" action="?action=new">
                     <h2 class="mt-5 mb-4">🦇 Create your own post !</h2>
                     <?php
                     if (isset($errorMsg)) {

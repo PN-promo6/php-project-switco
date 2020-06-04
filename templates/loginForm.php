@@ -43,7 +43,7 @@
                         echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";
                     }
                     ?>
-                    <input type="text" class="form-control mb-4" name="username" placeholder="Email Address" required="" autofocus="" />
+                    <input type="text" class="form-control mb-4" name="username" placeholder="Nickname" required="" autofocus="" />
                     <input type="password" class="form-control mb-4" name="password" placeholder="Password" required="" />
                     <button class="btn btn-dark btn-block" type="submit">Login</button>
                 </form>

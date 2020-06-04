@@ -84,22 +84,22 @@ switch ($action) {
                 $errorMsg = "Category is empty !";
             } else if (empty($_POST['url_image'])) {
                 $errorMsg = "Image field is empty !";
-                if ($errorMsg) {
-                    include "../templates/addForm.php";
-                } else {
-                    $newPost = new Post();
-                    $newPost->title = $_POST['title'];
-                    $newPost->category = $_POST['category'];
-                    $newPost->url_image = $_POST['url_image'];
-                    $newPost->user = $_SESSION['user'];
-                    $manager->persist($newPost);
-                    $manager->flush();
-                    // $_SESSION['userId'] = $userId;
-                    header('Location: ?action=display');
-                }
-            } else {
-                include "../templates/registerForm.php";
             }
+            if ($errorMsg) {
+                include "../templates/addForm.php";
+            } else {
+                $newPost = new Post();
+                $newPost->title = $_POST['title'];
+                $newPost->category = $_POST['category'];
+                $newPost->url_image = $_POST['url_image'];
+                $newPost->user = $_SESSION['user'];
+                $manager->persist($newPost);
+                $manager->flush();
+                // $_SESSION['userId'] = $userId;
+                header('Location: ?action=display');
+            }
+        } else {
+            include "../templates/addForm.php";
         }
         break;
 
