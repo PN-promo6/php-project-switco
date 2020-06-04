@@ -11,9 +11,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="../public/css/style.css">
-    <link rel="stylesheet" href="../public/css/responsive.css">
-    <link rel="stylesheet" href="../public/css/login.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/login.css">
 
     <title>Inscrivez-vous gratuitement sur Creepy Cute !</title>
 </head>

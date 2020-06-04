@@ -33,23 +33,23 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <form class="form-inline my-2 my-lg-0 d-flex justify-content-center">
-                                <input class="form-control" name="search" type="search" placeholder="Rechercher" aria-label="Search">
+                                <input class="form-control" name="search" type="search" placeholder="Search" aria-label="Search">
                             </form>
                         </li>
                         <?php
-                        if (isset($_SESSION['userId'])) {
+                        if (isset($_SESSION['user'])) {
                         ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="?action=logout" role="button">Logout</a>
+                                <a class="nav-link" href="/?action=logout" role="button">Logout</a>
                             </li>
                         <?php
                         } else {
                         ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="?action=login" role="button">LOG IN<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/?action=login" role="button">LOG IN<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn btn-outline-dark btn-custom" href="?action=register" role="button">SIGN UP</a>
+                                <a class="nav-link btn btn-outline-dark btn-custom" href="/?action=register" role="button">SIGN UP</a>
                             </li>
                         <?php
                         }
@@ -87,7 +87,7 @@
                             <div class="card-body">
                                 <h3 class="card-title h5"><?php echo $item->title; ?></h3>
                                 <p class="card-text"><span class="badge badge-pill custom-badge-lilac"><?php echo $item->category; ?></span></p>
-                                <a href="?search=@<?php echo $item->user->nickname; ?>" class="card-text"><small class="text-muted">@<?php echo $item->user->nickname; ?></small></a>
+                                <a href="/?search=@<?php echo $item->user->nickname; ?>" class="card-text"><small class="text-muted">@<?php echo $item->user->nickname; ?></small></a>
                             </div>
 
                         </div>
