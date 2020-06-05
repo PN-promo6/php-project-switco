@@ -73,40 +73,56 @@
     <!-- MAIN -->
     <div class="bg-light-lilac py-5">
         <main class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3 mb-5">
-                    <?php
-                    if (isset($_SESSION['user'])) {
-                    ?>
-                        <a href="/?action=new" class="btn btn-dark btn-block"> Add new post</a>
-                    <?php
-                    }
-                    ?>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <?php
-                $rowLimite = 0;
-                foreach ($items as $item) {
-                    if ($rowLimite % 3 == 0 && $rowLimite > 0) {
-                        echo '</div><div class="row justify-content-center">';
-                    }
-                ?>
-                    <div class="col-lg-4">
-                        <div class="card mb-3">
-                            <img src="<?php echo $item->url_image; ?>" class="card-img-top" alt="Image du post">
-                            <div class="card-body">
-                                <h3 class="card-title h5"><?php echo $item->title; ?></h3>
-                                <p class="card-text"><span class="badge badge-pill custom-badge-lilac"><?php echo $item->category; ?></span></p>
-                                <a href="/?search=@<?php echo $item->user->nickname; ?>" class="card-text"><small class="text-muted">@<?php echo $item->user->nickname; ?></small></a>
-                            </div>
 
-                        </div>
+            <?php
+            if (isset($_SESSION['user'])) {
+            ?>
+                <div class="row">
+                    <div class="col-md-6 offset-md-3 mb-5">
+                        <a href="/?action=new" class="btn btn-dark btn-block"> Add new post</a>
                     </div>
-                <?php
-                    $rowLimite++;
-                } ?>
-            </div>
+                </div>
+            <?php
+            } else {
+            ?>
+                <div class="row">
+                    <div class="col text-center">
+                        <h2>You want to add your own post ?</h2>
+                        <p class="text-muted">Create an account or log in !</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 offset-md-3 mb-5">
+                        <a href="/?action=login" class="btn btn-outline-secondary btn-block"> Login</a>
+                    </div>
+                    <div class="col-md-3 mb-5">
+                        <a href="/?action=register" class="btn btn-dark btn-block">Create</a>
+                    </div>
+                <?php } ?>
+
+                <div class="row justify-content-center">
+                    <?php
+                    $rowLimite = 0;
+                    foreach ($items as $item) {
+                        if ($rowLimite % 3 == 0 && $rowLimite > 0) {
+                            echo '</div><div class="row justify-content-center">';
+                        }
+                    ?>
+                        <div class="col-lg-4">
+                            <div class="card mb-3">
+                                <img src="<?php echo $item->url_image; ?>" class="card-img-top" alt="Image du post">
+                                <div class="card-body">
+                                    <h3 class="card-title h5"><?php echo $item->title; ?></h3>
+                                    <p class="card-text"><span class="badge badge-pill custom-badge-lilac"><?php echo $item->category; ?></span></p>
+                                    <a href="/?search=@<?php echo $item->user->nickname; ?>" class="card-text"><small class="text-muted">@<?php echo $item->user->nickname; ?></small></a>
+                                </div>
+
+                            </div>
+                        </div>
+                    <?php
+                        $rowLimite++;
+                    } ?>
+                </div>
         </main>
     </div>
 

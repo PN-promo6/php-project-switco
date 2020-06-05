@@ -38,7 +38,7 @@ switch ($action) {
                 $newUser->mail = '';
                 $manager->persist($newUser);
                 $manager->flush();
-                $_SESSION['userId'] = $userId;
+                $_SESSION['userId'] = $newUser;
                 header('Location: ?action=display');
             }
         } else {
@@ -76,7 +76,7 @@ switch ($action) {
         break;
 
     case 'new':
-        if (isset($_POST['title']) && isset($_POST['category']) && isset($_POST['url_image'])) {
+        if (isset($_SESSION['user']) && isset($_POST['title']) && isset($_POST['category']) && isset($_POST['url_image'])) {
             $errorMsg = NULL;
             if (empty($_POST['title'])) {
                 $errorMsg = "Title is empty !";
@@ -95,7 +95,6 @@ switch ($action) {
                 $newPost->user = $_SESSION['user'];
                 $manager->persist($newPost);
                 $manager->flush();
-                // $_SESSION['userId'] = $userId;
                 header('Location: ?action=display');
             }
         } else {
