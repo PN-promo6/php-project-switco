@@ -71,9 +71,9 @@
     </div>
 
     <!-- MAIN -->
-    <div class="bg-light-lilac py-5">
-        <main class="container">
+    <main class="bg-light-lilac py-5">
 
+        <section id="add-row" class="container">
             <?php
             if (isset($_SESSION['user'])) {
             ?>
@@ -96,39 +96,45 @@
                         <a href="/login" class="btn btn-outline-secondary btn-block"> Login</a>
                     </div>
                     <div class="col-md-3 mb-5">
-                        <a href="/register" class="btn btn-dark btn-block">Create</a>
+                        <a href="/register" class="btn btn-dark btn-block">Sign Up</a>
                     </div>
-                <?php } ?>
+                <?php
+            }
+                ?>
 
-                <div class="row justify-content-center">
-                    <?php
-                    $rowLimite = 0;
-                    foreach ($items as $item) {
-                        if ($rowLimite % 3 == 0 && $rowLimite > 0) {
-                            echo '</div><div class="row justify-content-center">';
-                        }
-                    ?>
-                        <div class="col-lg-4">
-                            <div class="card mb-3">
-                                <img src="<?php echo $item->url_image; ?>" class="card-img-top" alt="Image du post">
-                                <div class="card-body">
-                                    <h3 class="card-title h5"><?php echo $item->title; ?></h3>
-                                    <p class="card-text"><span class="badge badge-pill custom-badge-lilac"><?php echo $item->category; ?></span></p>
-                                    <a href="/?search=@<?php echo $item->user->nickname; ?>" class="card-text"><small class="text-muted">@<?php echo $item->user->nickname; ?></small></a>
-                                </div>
+        </section>
 
+        <section id="post-row" class="container">
+            <div class="row">
+                <?php
+                $rowLimite = 0;
+                foreach ($items as $item) {
+                    if ($rowLimite % 3 == 0 && $rowLimite > 0) {
+                        echo '</div><div class="row">';
+                    }
+                ?>
+                    <div class="col-lg-4">
+                        <div class="card mb-3 shadow-sm">
+                            <img src="<?php echo $item->url_image; ?>" class="card-img-top" alt="Image du post">
+                            <div class="card-body">
+                                <h3 class="card-title h5"><?php echo $item->title; ?></h3>
+                                <p class="card-text"><span class="badge badge-pill custom-badge-lilac"><?php echo $item->category; ?></span></p>
+                                <a href="/?search=@<?php echo $item->user->nickname; ?>" class="card-text"><small class="text-muted">@<?php echo $item->user->nickname; ?></small></a>
                             </div>
+
                         </div>
-                    <?php
-                        $rowLimite++;
-                    } ?>
-                </div>
-        </main>
-    </div>
+                    </div>
+                <?php
+                    $rowLimite++;
+                } ?>
+            </div>
+        </section>
+
+    </main>
 
     <!-- FOOTER -->
 
-    <div class="">
+    <footer class="">
         <div class="container p-0">
             <nav class="navbar navbar-expand-lg py-4">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -154,9 +160,9 @@
                         </li>
                     </ul>
                 </div>
+            </nav>
         </div>
-        </nav>
-    </div>
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
