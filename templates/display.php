@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 
-    <title>Mon super site</title>
+    <title>{{title_head}}</title>
 </head>
 
 <body id="bootstrap-overrides-bg">

@@ -2,38 +2,50 @@
 
 namespace Controller;
 
-class AuthController
+use Entity\User;
+use ludk\Http\Request;
+use ludk\Http\Response;
+use ludk\Controller\AbstractController;
+
+class AuthController extends AbstractController
 {
-    public function login()
+    public function login(Request $request): Response
     {
 
-        global $userRepo;
+        $userRepo = $this->getOrm()->getRepository(User::class);
 
-        if (isset($_POST['username']) && isset($_POST['password'])) {
-            $usersWithThisLogin = $userRepo->findBy(array("nickname" => $_POST['username']));
+        if ($request->request->has('username') && $request->request->has('password')) {
+            $usersWithThisLogin = $userRepo->findBy(array("nickname" => $request->request->get('username')));
+
             if (count($usersWithThisLogin) == 1) {
                 $firstUserWithThisLogin = $usersWithThisLogin[0];
-                if ($firstUserWithThisLogin->password != md5($_POST['password'])) {
+                if ($firstUserWithThisLogin->password != md5($request->request->get('password'))) {
                     $errorMsg = "Wrong password.";
-                    include "../templates/loginForm.php";
+                    $data = array(
+                        'errorMsg' => $errorMsg
+                    );
+                    return $this->render('loginForm.php', $data);
                 } else {
-                    $_SESSION['user'] = $usersWithThisLogin[0];
-                    header('Location:/display');
+                    $request->getSession()->set('user', $usersWithThisLogin[0]);
+                    return $this->redirectToRoute('display');
                 }
             } else {
                 $errorMsg = "Nickname doesn't exist.";
-                include "../templates/loginForm.php";
+                $data = array(
+                    'errorMsg' => $errorMsg
+                );
+                return $this->render('loginForm.php', $data);
             }
         } else {
-            include "../templates/loginForm.php";
+            return $this->render('loginForm.php');
         }
     }
 
-    public function logout()
+    public function logout(Request $request): Response
     {
-        if (isset($_SESSION['user'])) {
-            unset($_SESSION['user']);
+        if ($request->getSession()->has('user')) {
+            $request->getSession()->remove('user');
         }
-        header('Location:/display');
+        return $this->redirectToRoute('display');
     }
 }

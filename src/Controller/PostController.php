@@ -3,37 +3,43 @@
 namespace Controller;
 
 use Entity\Post;
+use ludk\Http\Request;
+use ludk\Http\Response;
+use ludk\Controller\AbstractController;
 
-class PostController
+class PostController extends AbstractController
 {
 
-    public function create()
+    public function create(Request $request): Response
     {
-        global $manager;
+        $manager = $this->getOrm()->getManager();
 
-        if (isset($_SESSION['user']) && isset($_POST['title']) && isset($_POST['category']) && isset($_POST['url_image'])) {
+        if ($request->getSession()->has('user') && $request->request->has('title') && $request->request->has('category') && $request->request->has('url_image')) {
             $errorMsg = NULL;
-            if (empty($_POST['title'])) {
+            if (empty($request->request->get('title'))) {
                 $errorMsg = "Title is empty !";
-            } else if (empty($_POST['category'])) {
+            } else if (empty($request->request->get('category'))) {
                 $errorMsg = "Category is empty !";
-            } else if (empty($_POST['url_image'])) {
+            } else if (empty($request->request->get('url_image'))) {
                 $errorMsg = "Image field is empty !";
             }
             if ($errorMsg) {
-                include "../templates/addForm.php";
+                $data = array(
+                    'errorMsg' => $errorMsg
+                );
+                return $this->render('addForm.php', $data);
             } else {
                 $newPost = new Post();
-                $newPost->title = $_POST['title'];
-                $newPost->category = $_POST['category'];
-                $newPost->url_image = $_POST['url_image'];
-                $newPost->user = $_SESSION['user'];
+                $newPost->title = $request->request->get('title');
+                $newPost->category = $request->request->get('category');
+                $newPost->url_image = $request->request->get('url_image');
+                $newPost->user = $request->getSession()->get('user');
                 $manager->persist($newPost);
                 $manager->flush();
-                header('Location:/display');
+                return $this->redirectToRoute('display');
             }
         } else {
-            include "../templates/addForm.php";
+            return $this->render('addForm.php');
         }
     }
 }
