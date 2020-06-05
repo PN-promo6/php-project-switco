@@ -30,7 +30,7 @@ class PostController
                 $newPost->user = $_SESSION['user'];
                 $manager->persist($newPost);
                 $manager->flush();
-                header('Location: ?action=display');
+                header('Location:/display');
             }
         } else {
             include "../templates/addForm.php";

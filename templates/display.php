@@ -25,7 +25,7 @@
         <div class="container p-0">
 
             <nav class="navbar navbar-expand-lg navbar-light px-sm-0">
-                <a class="navbar-brand font-weight-bold" href="?">🦇 CREEPY CUTE 🦇</a>
+                <a class="navbar-brand font-weight-bold" href="/">🦇 CREEPY CUTE 🦇</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -40,16 +40,16 @@
                         if (isset($_SESSION['user'])) {
                         ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="/?action=logout" role="button">Logout</a>
+                                <a class="nav-link" href="/logout" role="button">Logout</a>
                             </li>
                         <?php
                         } else {
                         ?>
                             <li class="nav-item">
-                                <a class="nav-link" href="/?action=login" role="button">LOG IN<span class="sr-only">(current)</span></a>
+                                <a class="nav-link" href="/login" role="button">LOG IN<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link btn btn-outline-dark btn-custom" href="/?action=register" role="button">SIGN UP</a>
+                                <a class="nav-link btn btn-outline-dark btn-custom" href="/register" role="button">SIGN UP</a>
                             </li>
                         <?php
                         }
@@ -79,7 +79,7 @@
             ?>
                 <div class="row">
                     <div class="col-md-6 offset-md-3 mb-5">
-                        <a href="/?action=new" class="btn btn-dark btn-block"> Add new post</a>
+                        <a href="/new" class="btn btn-dark btn-block"> Add new post</a>
                     </div>
                 </div>
             <?php
@@ -93,10 +93,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3 offset-md-3 mb-5">
-                        <a href="/?action=login" class="btn btn-outline-secondary btn-block"> Login</a>
+                        <a href="/login" class="btn btn-outline-secondary btn-block"> Login</a>
                     </div>
                     <div class="col-md-3 mb-5">
-                        <a href="/?action=register" class="btn btn-dark btn-block">Create</a>
+                        <a href="/register" class="btn btn-dark btn-block">Create</a>
                     </div>
                 <?php } ?>
 

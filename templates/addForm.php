@@ -25,7 +25,7 @@
         <div class="container p-0">
 
             <nav class="navbar navbar-expand-lg navbar-light px-sm-0">
-                <a class="navbar-brand font-weight-bold" href="?">🦇 CREEPY CUTE 🦇</a>
+                <a class="navbar-brand font-weight-bold" href="/">🦇 CREEPY CUTE 🦇</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -36,7 +36,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 mx-auto mt-5">
-                <form class="form-group" method="POST" action="?action=new">
+                <form class="form-group" method="POST" action="/new">
                     <h2 class="mt-5 mb-4">🦇 Create your own post !</h2>
                     <?php
                     if (isset($errorMsg)) {

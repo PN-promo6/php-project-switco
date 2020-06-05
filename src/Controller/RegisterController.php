@@ -35,7 +35,7 @@ class RegisterController
                 $manager->persist($newUser);
                 $manager->flush();
                 $_SESSION['userId'] = $newUser;
-                header('Location: ?action=display');
+                header('Location:/display');
             }
         } else {
             include "../templates/registerForm.php";
